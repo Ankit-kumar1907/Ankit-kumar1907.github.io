@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ankit Kumar | UX Engineer & HCI Aspirant</title>
+
+  <style>
+    :root {
+      --text-primary: #1a1a1a;
+      --text-secondary: #555;
+      --accent: #0056b3;
+      --bg: #ffffff;
+      --surface: #f7f7f7;
+      --border: #e5e5e5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- NAV ---------- */
+    header.site-header {
+      padding: 32px 0 64px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 72px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* ---------- HERO ---------- */
+    .status {
+      display: inline-block;
+      background: var(--surface);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin-bottom: 32px;
+    }
+
+    .primary-cta {
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      margin-bottom: 96px;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 32px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 12px;
+    }
+
+    p {
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+
+    /* ---------- PROJECT CARD ---------- */
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 32px;
+      background: var(--surface);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 32px;
+    }
+
+    .card-content h3 {
+      margin-top: 0;
+      font-size: 1.35rem;
+    }
+
+    .tags {
+      margin-bottom: 16px;
+    }
+
+    .tags span {
+      font-size: 0.8rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-right: 8px;
+    }
+
+    .project-link {
+      font-weight: 600;
+      margin-top: 12px;
+      display: inline-block;
+    }
+
+    /* ---------- ABOUT ---------- */
+    ul {
+      padding-left: 20px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      padding-bottom: 64px;
+    }
+
+    .contact-links a {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .copyright {
+      margin-top: 48px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header class="site-header">
+      <nav aria-label="Main navigation">
+        <div class="logo">Ankit Kumar</div>
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <span class="status">Student · Mathematics · UX / HCI</span>
+      <h1>Bridging mathematical logic with human empathy.</h1>
+      <p class="tagline">
+        I’m a B.Sc. Mathematics student exploring how rigorous reasoning
+        can be applied to human-centered digital systems.
+      </p>
+      <a href="#work" class="primary-cta">View selected work ↓</a>
+    </header>
+
+    <section id="work">
+      <h2>Selected Work</h2>
+
+      <article class="project-card">
+        <div class="card-image">
+          <img src="assets/latt-thumb.png" alt="Latt subscription manager interface preview">
+        </div>
+        <div class="card-content">
+          <h3>Latt — Subscription Manager</h3>
+          <div class="tags">
+            <span>UX Case Study</span>
+            <span>FinTech</span>
+            <span>Ethical Design</span>
+          </div>
+          <p>
+            A centralized subscription management concept designed to
+            reduce accidental renewals by aligning system behavior with
+            user intent, especially during payment failures.
+          </p>
+          <p><em>“Technology should protect users from mistakes, not profit from them.”</em></p>
+          <a class="project-link" href="https://ankit-kumar1907.github.io/Latt" target="_blank">
+            View case study →
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I’m currently pursuing a <strong>B.Sc. in Mathematics</strong> at
+        :contentReference[oaicite:0]{index=0}.
+      </p>
+      <p>
+        My academic training emphasizes logical rigor and abstraction,
+        while my interest in <strong>Human–Computer Interaction</strong>
+        pushes me to question how systems affect human judgment,
+        autonomy, and error.
+      </p>
+      <p>
+        <strong>Goal:</strong> To pursue a Master’s in HCI and contribute to
+        the design of systems that are ethically defensible, not merely usable.
+      </p>
+
+      <h3>Core Focus</h3>
+      <ul>
+        <li>UX Engineering & Interaction Design</li>
+        <li>Front-end development (HTML, CSS, JS)</li>
+        <li>Philosophy of technology & ethics</li>
+      </ul>
+    </section>
+
+    <footer id="contact">
+      <h2>Let’s Connect</h2>
+      <p>
+        I’m open to internships and research-oriented opportunities in
+        UX engineering and HCI.
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:Ankit12658@gmail.com">Ankit12658@gmail.com</a>
+        <a href="tel:+919317737493">+91 93177 37493</a>
+        <a href="https://github.com/Ankit-kumar1907" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ankit-kumar-47a581394" target="_blank">LinkedIn</a>
+      </div>
+
+      <p class="copyright">
+        © 2026 Ankit Kumar · Designed with intent
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
