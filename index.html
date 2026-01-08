@@ -3,204 +3,250 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ankit Kumar | UX Engineer & HCI Aspirant</title>
+  <title>Ankit Kumar | Student & HCI Aspirant</title>
 
   <style>
     :root {
-      --text-primary: #1a1a1a;
-      --text-secondary: #555;
-      --accent: #0056b3;
+      --text-primary: #111111;
+      --text-secondary: #5e5e5e;
+      --accent: #004493; /* Academic Blue */
       --bg: #ffffff;
-      --surface: #f7f7f7;
-      --border: #e5e5e5;
+      --surface: #f8f9fa;
+      --border: #e0e0e0;
+      --font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
+      font-family: var(--font-stack);
+      line-height: 1.7;
       color: var(--text-primary);
       background: var(--bg);
+      -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: var(--text-primary); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent); }
 
     .container {
-      max-width: 960px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
     /* ---------- NAV ---------- */
-    header.site-header {
-      padding: 32px 0 64px;
-    }
+    header.site-header { padding: 60px 0 100px; }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 72px;
+      margin-bottom: 80px;
     }
 
-    .logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
+    .logo { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 24px;
+      gap: 32px;
       padding: 0;
       margin: 0;
     }
 
-    nav a {
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
+    nav a { color: var(--text-secondary); font-size: 0.95rem; font-weight: 500; }
+    nav a:hover { color: var(--text-primary); }
 
     /* ---------- HERO ---------- */
     .status {
       display: inline-block;
       background: var(--surface);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      margin-bottom: 20px;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 24px;
     }
 
     h1 {
-      font-size: 2.8rem;
-      line-height: 1.2;
-      margin: 0 0 16px;
-      letter-spacing: -0.02em;
+      font-size: 3rem;
+      line-height: 1.1;
+      margin: 0 0 24px;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      max-width: 800px;
     }
 
     .tagline {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: var(--text-secondary);
-      max-width: 640px;
-      margin-bottom: 32px;
-    }
-
-    .primary-cta {
-      font-weight: 600;
-      display: inline-block;
+      max-width: 650px;
+      margin-bottom: 40px;
+      font-weight: 400;
     }
 
     /* ---------- SECTIONS ---------- */
-    section {
-      margin-bottom: 96px;
-    }
+    section { margin-bottom: 140px; }
 
     h2 {
-      font-size: 1.75rem;
-      margin-bottom: 32px;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 12px;
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+      letter-spacing: -0.01em;
     }
 
-    p {
-      max-width: 720px;
-      margin-bottom: 20px;
-    }
+    p { max-width: 680px; margin-bottom: 24px; font-size: 1.05rem; }
 
-    /* ---------- PROJECT CARD ---------- */
+    /* ---------- PROJECT CARD (LATT) ---------- */
     .project-card {
       display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 32px;
-      background: var(--surface);
-      border-radius: 14px;
+      grid-template-columns: 1.2fr 1.8fr;
+      gap: 0;
+      background: var(--bg);
+      border-radius: 12px;
       border: 1px solid var(--border);
       overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: all 0.3s ease;
     }
 
     .project-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      border-color: var(--accent);
+    }
+
+    .card-image {
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-right: 1px solid var(--border);
     }
 
     .card-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      transition: transform 0.4s ease;
     }
+    
+    .project-card:hover .card-image img { transform: scale(1.03); }
 
-    .card-content {
-      padding: 32px;
-    }
+    .card-content { padding: 40px; display: flex; flex-direction: column; }
 
     .card-content h3 {
       margin-top: 0;
-      font-size: 1.35rem;
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
     }
 
-    .tags {
+    /* Metadata Grid */
+    .project-meta {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 24px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 20px;
+    }
+    .project-meta div strong { 
+        color: var(--text-primary); 
+        display: block; 
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .problem-statement {
+      font-weight: 500;
+      color: var(--text-primary);
       margin-bottom: 16px;
-    }
-
-    .tags span {
-      font-size: 0.8rem;
-      background: #fff;
-      border: 1px solid var(--border);
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-right: 8px;
+      font-style: italic;
+      border-left: 2px solid var(--accent);
+      padding-left: 16px;
     }
 
     .project-link {
+      margin-top: auto;
       font-weight: 600;
-      margin-top: 12px;
-      display: inline-block;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+    }
+    .project-link:hover { text-decoration: underline; }
+
+    /* ---------- ABOUT & LIBRARY ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 64px; 
     }
 
-    /* ---------- ABOUT ---------- */
-    ul {
-      padding-left: 20px;
+    .highlight-text {
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      font-weight: 500;
     }
+
+    /* Education Block Styling */
+    .education-block {
+        margin-top: 40px;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+    }
+
+    .education-item {
+        margin-bottom: 24px;
+    }
+    
+    .education-item h4 {
+        margin: 0 0 4px 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .education-sub {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        font-style: italic;
+    }
+
+    /* Library/Sidebar */
+    .library-section {
+      background: var(--surface);
+      padding: 32px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      height: fit-content;
+    }
+    
+    .library-section h3 { margin-top: 0; font-size: 1rem; margin-bottom: 24px;}
+    .library-section ul { padding-left: 0; list-style: none; }
+    .library-section li { margin-bottom: 16px; color: var(--text-secondary); }
+    .library-section li strong { color: var(--text-primary); display: block; margin-bottom: 4px;}
 
     /* ---------- FOOTER ---------- */
-    footer {
-      padding-bottom: 64px;
-    }
-
-    .contact-links a {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .copyright {
-      margin-top: 48px;
-      font-size: 0.8rem;
-      color: #888;
-    }
+    footer { padding-bottom: 80px; border-top: 1px solid var(--border); padding-top: 60px; }
+    .contact-row { display: flex; gap: 32px; margin-top: 24px; }
+    .contact-row a { color: var(--text-secondary); font-size: 0.95rem; }
+    .contact-row a:hover { color: var(--accent); }
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-
-      .project-card {
-        grid-template-columns: 1fr;
-      }
+      h1 { font-size: 2.2rem; }
+      .project-card { grid-template-columns: 1fr; }
+      .card-image { height: 240px; border-right: none; border-bottom: 1px solid var(--border); }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-row { flex-direction: column; gap: 16px; }
+      .project-meta { gap: 16px; flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -218,86 +264,120 @@
         </ul>
       </nav>
 
-      <span class="status">Student · Mathematics · UX / HCI</span>
+      <span class="status">● Undergraduate Student & Web Dev Learner</span>
+      
       <h1>Bridging mathematical logic with human empathy.</h1>
       <p class="tagline">
-        I’m a B.Sc. Mathematics student exploring how rigorous reasoning
-        can be applied to human-centered digital systems.
+        I am a student of <strong>Mathematics and Philosophy</strong>. I use rigorous reasoning and systems thinking to build digital tools that are ethically defensible and intuitively structured.
       </p>
-      <a href="#work" class="primary-cta">View selected work ↓</a>
     </header>
 
     <section id="work">
-      <h2>Selected Work</h2>
-<article class="project-card">
-        <div class="card-image">
-          <a href="https://ankit-kumar1907.github.io/LATT-case-study/" target="_blank">
-            <img src="assets/Hero.png" alt="Latt subscription manager interface preview">
-          </a>
-        </div>
-        <div class="card-content">
-          <h3>
-            <a href="https://ankit-kumar1907.github.io/LATT-case-study/" target="_blank" style="color: inherit; text-decoration: none;">
-              Latt — Subscription Manager
-            </a>
-          </h3>
-          <div class="tags">
-            <span>UX Case Study</span>
-            <span>FinTech</span>
-            <span>Ethical Design</span>
-          </div>
-          <p>
-            A centralized subscription management concept designed to
-            reduce accidental renewals by aligning system behavior with
-            user intent, especially during payment failures.
-          </p>
-          <p><em>“Technology should protect users from mistakes, not profit from them.”</em></p>
-          
-          <a href="https://ankit-kumar1907.github.io/LATT-case-study/" class="project-link" target="_blank">View Case Study →</a>
-        </div>
-      </article>
+      <h2>Selected Case Study</h2>
+     <article class="project-card">
+  <div class="card-image">
+    <a href="https://ankit-kumar1907.github.io/LATT-case-study/" target="_blank">
+      <img src="assets/Hero.png" alt="Latt Interface Mockup" onerror="this.style.display='none'; this.parentElement.style.background='#e0e0e0'">
+    </a>
+  </div>
+  
+  <div class="card-content">
+    <h3>
+      <a href="https://ankit-kumar1907.github.io/LATT-case-study/" target="_blank" style="color: inherit; text-decoration: none;">
+        Latt — Subscription Manager
+      </a>
+    </h3>
+
+    <div class="project-meta">
+      <div><strong>Role</strong>UX & Full Stack</div>
+      <div><strong>Tools</strong>Figma, Node.js</div>
+      <div><strong>Timeline</strong>4 Weeks</div>
+    </div>
+
+    <div class="problem-statement">
+      "How might we prevent users from losing money on forgotten subscriptions?"
+    </div>
+
+    <p style="font-size: 0.95rem; color: var(--text-secondary);">
+      A centralized dashboard that aligns system behavior with user intent. 
+      I moved beyond simple UI to design a database structure that handles 
+      recurring logic and payment failure states gracefully.
+    </p>
+    
+    <a href="https://ankit-kumar1907.github.io/LATT-case-study/" class="project-link" target="_blank">
+      View Case Study & Process →
+    </a>
+  </div>
+</article>
     </section>
     
     <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I’m currently pursuing a <strong>B.Sc. in Mathematics</strong> at Government degree college Ghumarwin
-      </p>
-      <p>
-        My academic training emphasizes logical rigor and abstraction,
-        while my interest in <strong>Human–Computer Interaction</strong>
-        pushes me to question how systems affect human judgment,
-        autonomy, and error.
-      </p>
-      <p>
-        <strong>Goal:</strong> To pursue a Master’s in HCI and contribute to
-        the design of systems that are ethically defensible, not merely usable.
-      </p>
+      <h2>The Intersection</h2>
+      
+      <div class="about-grid">
+        <div>
+          <p class="highlight-text">
+            I am currently pursuing a dual academic path in <strong>Mathematics and Philosophy</strong>.
+          </p>
+          <p>
+            My background in Mathematics trains me to think analytically and handle complex systems, while my studies in Philosophy push me to ask the "why" behind human behavior.
+          </p>
+          <p>
+            Currently, I am actively <strong>learning Full Stack Development</strong> to translate my theoretical knowledge into practical tools. I am building projects and studying database design to prepare for a Master's in Human-Computer Interaction (HCI).
+          </p>
 
-      <h3>Core Focus</h3>
-      <ul>
-        <li>UX Engineering & Interaction Design</li>
-        <li>Front-end development (HTML, CSS, JS)</li>
-        <li>Philosophy of technology & ethics</li>
-      </ul>
+          <div class="education-block">
+            <h3 style="font-size: 1.2rem; margin-bottom: 24px;">Education</h3>
+            
+            <div class="education-item">
+                <h4>B.Sc. in Mathematics <span style="font-size:0.8em; font-weight:400; color:#5e5e5e;">(Pursuing)</span></h4>
+                <div class="education-sub">Government Degree College, Ghumarwin</div>
+            </div>
+
+            <div class="education-item">
+                <h4>B.A. in Philosophy <span style="font-size:0.8em; font-weight:400; color:#5e5e5e;">(Pursuing)</span></h4>
+                <div class="education-sub">Indira Gandhi National Open University (IGNOU)</div>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="library-section">
+          <h3>Currently Consuming</h3>
+          <ul>
+            <li>
+              <strong>Indian Philosophy</strong>
+              Studying Epistemology (Pramana) and ethics to understand how we know what we know.
+            </li>
+            <li>
+              <strong>Greek Philosophy</strong>
+              Stoic logic and systems of virtue (Seneca/Epictetus).
+            </li>
+            <li>
+              <strong>Tech Stack</strong>
+              Deep diving into Database Normalization (3NF/BCNF) and scalable architectures.
+            </li>
+          </ul>
+        </aside>
+      </div>
     </section>
 
     <footer id="contact">
       <h2>Let’s Connect</h2>
       <p>
-        I’m open to internships and research-oriented opportunities in
-        UX engineering and HCI.
+        I am building my portfolio for Masters applications. 
+        I am open to feedback, collaboration, or a discussion on the ethics of UX.
       </p>
 
-      <div class="contact-links">
+      <div class="contact-row">
         <a href="mailto:ansu7157@gmail.com">ansu7157@gmail.com</a>
         <a href="tel:+919317737493">+91 93177 37493</a>
         <a href="https://github.com/Ankit-kumar1907" target="_blank">GitHub</a>
         <a href="https://www.linkedin.com/in/ankit-kumar-47a581394" target="_blank">LinkedIn</a>
       </div>
 
-      <p class="copyright">
-        © 2026 Ankit Kumar · Designed with intent
+      <p style="margin-top: 40px; font-size: 0.8rem; color: #aaa;">
+        © 2026 Ankit Kumar · Coded by hand
       </p>
     </footer>
 
