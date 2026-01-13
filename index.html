@@ -106,7 +106,7 @@
     p { max-width: 680px; margin-bottom: 24px; font-size: 1.05rem; }
 
 
-    /* ---------- PROJECT SECTIONS (NEW LAYOUT) ---------- */
+    /* ---------- PROJECT SECTIONS ---------- */
     
     .discipline-block {
         margin-bottom: 80px;
@@ -130,6 +130,7 @@
         border-radius: 12px;
         overflow: hidden;
         transition: transform 0.3s ease;
+        margin-bottom: 40px; /* Spacing between cards */
     }
 
     .card-content {
@@ -192,6 +193,9 @@
         transition: transform 0.5s ease;
     }
 
+    /* Special dark bg for Aporia visual */
+    .aporia-bg { background: #050505; }
+    
     .design-layout:hover .card-image img { transform: scale(1.03); }
 
     .design-layout h3 { margin-top: 0; margin-bottom: 15px; font-weight: 700; color: #111; }
@@ -246,6 +250,9 @@
         display: inline-block;
         box-shadow: 0 0 8px #4ade80;
     }
+    
+    /* Blue dot for simulation */
+    .status-dot.blue { background-color: #3b82f6; box-shadow: 0 0 8px #3b82f6; }
 
     .tech-mono {
         font-family: monospace;
@@ -268,6 +275,9 @@
         font-size: 0.9rem;
     }
     .btn-code:hover { background: #1d4ed8; color: #fff; }
+    
+    .btn-code.secondary { background: #3b82f6; }
+    .btn-code.secondary:hover { background: #2563eb; }
 
     .btn-source {
         color: #a3a3a3;
@@ -360,11 +370,11 @@
         </ul>
       </nav>
 
-      <span class="status">● Undergraduate Student & Web Dev Learner</span>
+      <span class="status">● UX / Product Design Intern Candidate · Full-Stack Foundations</span>
       
-      <h1>Bridging mathematical logic with human empathy.</h1>
+      <h1>UX Research & Product Design grounded in logic and systems thinking.</h1>
       <p class="tagline">
-        I am a student of <strong>Mathematics and Philosophy</strong>. I use rigorous reasoning and systems thinking to build digital tools that are ethically defensible and intuitively structured.
+      I apply<strong> mathematical reasoning and UX research methods </strong>to identify breakdowns in user understanding and design clearer, more ethical digital systems.
       </p>
     </header>
 
@@ -387,6 +397,7 @@
                       <div><strong>Focus</strong>UX Audit & Redesign</div>
                       <div><strong>Tools</strong>Figma</div>
                       <div><strong>Method</strong>Heuristic Eval</div>
+                    <div><strong>Outcome</strong>Reduced cognitive friction & error risk</div>
                   </div>
 
                   <div class="problem-statement">
@@ -394,7 +405,7 @@
                   </div>
 
                   <p>
-                      A comprehensive case study analyzing the friction points in current subscription trackers. I conducted a heuristic evaluation to identify "dark patterns" and designed a transparent, user-centric interface.
+                      A comprehensive case study analyzing the friction points in current subscription trackers. I conducted a heuristic evaluation to identify "dark patterns" and designed a transparent, user-centric interface. 
                   </p>
                   
                   <div class="btn-row">
@@ -404,6 +415,38 @@
                   </div>
               </div>
           </article>
+
+          <article class="project-card design-layout">
+            <div class="card-image aporia-bg">
+                <a href="https://ankit-kumar1907.github.io/Aporia-Case-Study/" target="_blank" style="width:100%; height:100%;">
+                    <img src="assets/Aporia-hero-card.jpg" alt="Aporia Logic Interface" style="width:100%; height:100%; object-fit:cover;" onerror="this.src='https://placehold.co/600x400/050505/3b82f6?text=Aporia+Hero+Image'">
+                </a>
+            </div>
+            
+            <div class="card-content">
+                <h3>Aporia — AI Logic Interface</h3>
+                
+                <div class="project-meta">
+                    <div><strong>Focus</strong>AI Epistemics</div>
+                    <div><strong>Tools</strong>Figma / CSS</div>
+                    <div><strong>Theory</strong>Object-Oriented UX</div>
+                </div>
+
+                <div class="problem-statement">
+                    "Can we design an AI that prioritizes logical integrity over user satisfaction?"
+                </div>
+
+                <p>
+                    A research-driven interface that replaces linear chat with argument trees. It uses "Epistemic Neutrality" to visually flag logical gaps without judging the user. 
+                </p>
+                
+                <div class="btn-row">
+                    <a href="https://ankit-kumar1907.github.io/Aporia-Case-Study/" class="btn-design" target="_blank">
+                        View Interactive UI <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </article>
       </div>
 
 
@@ -420,7 +463,7 @@
                   <p class="tech-mono">Node.js • PostgreSQL • EJS • Render</p>
                   
                   <p>
-                      The functional implementation of the design. I built the backend server from scratch, implementing 3NF database normalization, secure session management, and CRUD operations.
+                      The functional implementation of the design. I built the backend server from scratch, implementing 3NF database normalization, secure session management, and CRUD operations. 
                   </p>
                   
                   <div class="btn-row">
@@ -433,6 +476,28 @@
                   </div>
               </div>
           </article>
+
+          <article class="project-card dev-layout">
+            <div class="card-content">
+                <div class="dev-header" style="color: #60a5fa;">
+                    <span class="status-dot blue"></span> Interactive Simulator
+                </div>
+                
+                <h3>Aporia Logic Engine v1.0</h3>
+                <p class="tech-mono">Vanilla JS • State Management • DOM Reactivity</p>
+                
+                <p>
+                    A lightweight JavaScript engine that simulates AI logic states. It detects specific fallacy patterns (Non-Sequitur, Contradiction) and triggers real-time UI state changes.
+                </p>
+                
+                <div class="btn-row">
+                    <a href="https://ankit-kumar1907.github.io/Aporia-Case-Study/" target="_blank" class="btn-code secondary">
+                        <i class="fas fa-microchip"></i> Try Simulator
+                    </a>
+                    <span style="font-size: 0.85rem; color: #666; margin-left: 10px;">(Included in Case Study)</span>
+                </div>
+            </div>
+        </article>
       </div>
 
     </section>
@@ -443,17 +508,25 @@
       <div class="about-grid">
         <div>
           <p class="highlight-text">
-            I am currently pursuing a dual academic path in <strong>Mathematics and Philosophy</strong>.
-          </p>
-          <p>
-            My background in Mathematics trains me to think analytically and handle complex systems, while my studies in Philosophy push me to ask the "why" behind human behavior.
-          </p>
-          <p>
-            Currently, I am actively <strong>learning Full Stack Development</strong> to translate my theoretical knowledge into practical tools. I am building projects and studying database design to prepare for a Master's in Human-Computer Interaction (HCI).
-          </p>
+            I work at the intersection of UX research, product design, and systems thinking.
+            </p>
+            
+            <p>
+            My background in <strong>Mathematics</strong> trains me to reason precisely about complex systems, while my studies in <strong>Philosophy</strong> sharpen my ability to question assumptions and analyze human reasoning.
+            </p>
+            
+            <p>
+            In practice, I use UX research methods—such as heuristic evaluation, problem framing, and iterative prototyping—to uncover where users misunderstand systems and why. I then translate these insights into clear interface structures rather than surface-level UI changes.
+            </p>
+            
+            <p>
+            Alongside design, I build <strong>functional full-stack prototypes</strong> to test ideas in real environments. This allows me to validate design decisions against actual system constraints instead of static concepts.
+            </p>
+
 
           <div class="education-block">
-            <h3 style="font-size: 1.2rem; margin-bottom: 24px;">Education</h3>
+            <h3 style="font-size: 1.2rem; margin-bottom: 24px;">I am currently completing formal training in Mathematics and Philosophy, which informs my approach to research-driven product design.
+</h3>
             
             <div class="education-item">
                 <h4>B.Sc. in Mathematics <span style="font-size:0.8em; font-weight:400; color:#5e5e5e;">(Pursuing)</span></h4>
@@ -491,8 +564,7 @@
     <footer id="contact">
       <h2>Let’s Connect</h2>
       <p>
-        I am building my portfolio for Masters applications. 
-        I am open to feedback, collaboration, or a discussion on the ethics of UX.
+        I am actively seeking internship opportunities in UX, product design, or research-driven development roles.
       </p>
 
       <div class="contact-row">
