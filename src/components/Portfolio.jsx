@@ -10,8 +10,14 @@ import { fadeIn, textVariant } from "../utils/motion";
 const ProjectCard = ({
   index,
   name,
+  quote,
   description,
+  focus,
+  tools,
+  methods,
+  outcome,
   image,
+  link,
 }) => {
   const controls = useAnimation();
   const { ref, inView } = useInView({
@@ -24,27 +30,87 @@ const ProjectCard = ({
     }
   }, [controls, inView]);
 
-  const isEven = index % 2 === 0;
-
   return (
     <motion.div
       ref={ref}
       animate={controls}
       initial="hidden"
-      variants={fadeIn("up", "spring", 0, 0.75)}
-      className={`w-full mt-[-2px] flex flex-col md:flex-row ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-5`}
+      variants={fadeIn("up", "spring", index * 0.2, 0.75)}
+      className="w-full bg-[#151030]/60 border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col lg:flex-row gap-8 items-center"
     >
-      <div className='relative w-full md:w-3/5'>
+      {/* Project Image Preview */}
+      <div
+        onClick={() => link && window.open(link, "_blank")}
+        className="w-full lg:w-1/2 cursor-pointer overflow-hidden rounded-2xl border border-white/5 group"
+      >
         <img
           src={image}
-          alt='project_image'
-          className='w-full h-auto object-cover md:rounded-3xl'
+          alt={name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
 
-      <div className={`w-full md:w-2/5 px-6 md:p-16 flex flex-col justify-center ${isEven ? "text-left md:text-left" : "text-left md:text-right"}`}>
-        <h3 className='text-white font-medium text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl lg:text-5xl leading-tight'>{name}</h3>
-        <p className='mt-4 text-secondary text-sm sm:text-xs md:text-sm lg:text-md xl:text-lg 2xl:text-xl'>{description}</p>
+      {/* Project Details */}
+      <div className="w-full lg:w-1/2 flex flex-col justify-between space-y-4">
+        <div>
+          <h3 className="text-white font-bold text-2xl sm:text-3xl mb-4">
+            {name}
+          </h3>
+
+          {/* Meta Tags */}
+          <div className="grid grid-cols-2 gap-3 mb-4 text-xs">
+            {focus && (
+              <div>
+                <span className="text-secondary block font-semibold">FOCUS</span>
+                <span className="text-white">{focus}</span>
+              </div>
+            )}
+            {tools && (
+              <div>
+                <span className="text-secondary block font-semibold">TOOLS</span>
+                <span className="text-white">{tools}</span>
+              </div>
+            )}
+            {methods && (
+              <div>
+                <span className="text-secondary block font-semibold">METHODS</span>
+                <span className="text-white">{methods}</span>
+              </div>
+            )}
+            {outcome && (
+              <div>
+                <span className="text-secondary block font-semibold">OUTCOME</span>
+                <span className="text-white">{outcome}</span>
+              </div>
+            )}
+          </div>
+
+          {/* Quote */}
+          {quote && (
+            <p className="italic text-gray-300 border-l-2 border-[#915eff] pl-3 my-3 text-sm">
+              "{quote}"
+            </p>
+          )}
+
+          {/* Description */}
+          <p className="text-secondary text-sm leading-relaxed mt-2">
+            {description}
+          </p>
+        </div>
+
+        {/* Action Button */}
+        {link && (
+          <div className="pt-2">
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#915eff] hover:bg-[#804dee] text-white text-sm font-semibold py-2.5 px-5 rounded-xl transition-all duration-200"
+            >
+              View Case Study <span>→</span>
+            </a>
+          </div>
+        )}
       </div>
     </motion.div>
   );
@@ -52,12 +118,13 @@ const ProjectCard = ({
 
 const Portfolio = () => {
   return (
-    <div className='text-center md:text-left md:px-20 lg:px-40'>
+    <div className="max-w-7xl mx-auto">
       <motion.div variants={textVariant()}>
-        <h2 className={`${styles.sectionText}`}>Portfolio</h2>
+        <p className={styles.sectionSubText}>My work</p>
+        <h2 className={styles.sectionHeadText}>Selected Projects.</h2>
       </motion.div>
 
-      <div className='mt-10 md:mt-20 flex flex-col gap-10 md:gap-20'>
+      <div className="mt-12 flex flex-col gap-10">
         {portfolio.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}

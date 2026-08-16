@@ -1,7 +1,8 @@
 import {
-  algorithms,
-  devnotes,
-  oscs,
+  scriptcraftHero,
+  heroImg,
+  aporiaHeroCard,
+  duoHeroCard,
 } from "../assets";
 
 export const navLinks = [
@@ -14,8 +15,8 @@ export const navLinks = [
     title: "Portfolio",
   },
   {
-    id: "experience",
-    title: "Experience",
+    id: "about",
+    title: "About",
   },
   {
     id: "contact",
@@ -23,69 +24,107 @@ export const navLinks = [
   },
 ];
 
-const experiences = [
+export const experiences = [
   {
-    title: "YouTube Content Creator",
-    company_name: "Self Employed",
-    date: "2016 - Present",
+    title: "UI / UX Design",
+    company_name: "Primary Focus",
+    date: "2024 - Present",
     details: [
-      "Built a subscriber base of over <span style='color: white;'>500,000 subscribers</span> by creating video content to help programmers.",
-      "Crafted visually appealling programming videos that have garnered over <span style='color: white;'>30,000,000 views</span>.",
-      "Produced high-quality educational and entertaining videos for clients including <span style='color: white;'>Intel, JetBrains, and MicroCenter</span>.",
+      "Designing user interfaces, wireframes, and interactive prototypes using <span style='color: white;'>Figma</span>.",
+      "Creating visual assets, layouts, and graphic elements using <span style='color: white;'>Adobe Photoshop</span>.",
+      "Focusing on user-centered design principles, responsive layout structures, and intuitive workflows.",
     ],
   },
   {
-    title: "Software Developer",
-    company_name: "Indie",
-    date: "2019 - 2023",
+    title: "Web Development",
+    company_name: "Frontend & Full-Stack Fundamentals",
+    date: "Coursework & Practice",
     details: [
-      "Developed and delivered custom interdisciplinary coding portfolio for clients including <span style='color: white;'>Nvidia, Hostinger, and Amazon</span>.",
-      "<span style='color: white;'>Designed and developed innovative</span> AI applications and interactive websites.",
-      "<span style='color: white;'>Managed full project lifecycle</span> from concept to deployment in successful and timely project completions.",
+      "Building responsive user interfaces with <span style='color: white;'>HTML, CSS, Tailwind CSS, JavaScript, and React</span>.",
+      "Completed full-stack web development coursework covering <span style='color: white;'>Node.js, Express, and database fundamentals</span>.",
+      "Applying web development knowledge to design practical, developer-ready UI systems.",
     ],
   },
   {
-    title: "Software Engineer",
-    company_name: "Prime 3",
-    date: "2018 - 2019",
+    title: "3D & Creative Coding",
+    company_name: "Exploration & Learning",
+    date: "Ongoing",
     details: [
-      "Built custom enterprise applications for a <span style='color: white;'>Fortune 500 company</span> as a full-stack software engineer.",
-      "Developed and maintained <span style='color: white;'>scalable backend services</span>, ensuring high availability for critical business applications.",
-      "<span style='color: white;'>Collaborated with a team</span> to design and implement front-end interfaces.",
+      "Creating 3D models and stylized visual assets inside <span style='color: white;'>Blender</span>.",
+      "Building interactive 3D web scenes using <span style='color: white;'>Three.js</span> and currently learning <span style='color: white;'>React Three Fiber (R3F)</span>.",
     ],
   },
   {
-    title: "Computer Science",
-    company_name: "ODU",
-    date: "2015 - 2018",
+    title: "B.Sc. Mathematics",
+    company_name: "Govt. Degree College Ghumarwin (HPU)",
+    date: "Undergraduate",
     details: [
-      "Built a <span style='color: white;'>computer science foundation</span> learning theory, computer architecture, and software engineering.",
-      "Worked and interned at <span style='color: white;'>NASA and Norfolk Southern Railway</span> to gain practical experience in the field of data analysis.",
-      "Acted as a member of the <span style='color: white;'>Association for Computing Machinery</span> (ACM).",
+      "Pursuing a Bachelor of Science with a major in <span style='color: white;'>Mathematics</span> and minors in <span style='color: white;'>Physics and Computer Science</span>.",
+      "Applying structured <span style='color: white;'>analytical problem-solving</span> and mathematical logic to technical design challenges.",
+    ],
+  },
+  {
+    title: "B.A. Philosophy",
+    company_name: "IGNOU",
+    date: "Distance Learning",
+    details: [
+      "Studying formal systems, <span style='color: white;'>logical argumentation</span>, and epistemological frameworks.",
+      "Applying philosophical analysis to software reasoning, interface design, and <span style='color: white;'>argument modeling</span>.",
     ],
   },
 ];
 
-const portfolio = [
+export const portfolio = [
   {
-    name: "Open Source Computer Science Repo",
+    name: "ScriptCraft — Document Engine",
+    quote:
+      "How might we design a handwriting synthesizer that mirrors authentic physical document structure rather than applying superficial text filters?",
     description:
-      "A GitHub repo with over 17,000 stars containing a curated list of free online courses from reputable universities that satisfy undergraduate computer science requirements.",
-    image: oscs,
+      "A privacy-first handwriting engine designed for academic assignments. Features automatic two-zone margin routing, dual-ink palettes, deterministic procedural baseline jitter, and built-in PDF/ZIP export pipelines.",
+    focus: "Spatial & Systems UI",
+    tools: "HTML5 Canvas / GSAP",
+    methods: "Two-Zone Margin Routing",
+    outcome: "100% Client-Side",
+    image: scriptcraftHero,
+    link: "https://ankit-kumar1907.github.io/ScriptCraft-Studio-UX-Engineering-Case-Study/",
   },
   {
-    name: "Dev Notes",
+    name: "Latt — Subscription Manager",
+    quote:
+      "How might we redesign the opaque subscription management interfaces of subscription trackers to prevent payment failures?",
     description:
-      "A newsletter with over 6,000 readers made for software developers to keep up with this rapidly evolving industry, with a sister platform in progress.",
-    image: devnotes,
+      "A comprehensive case study analyzing the friction points in current subscription trackers. I conducted a heuristic evaluation to identify \"dark patterns\" and designed a transparent, user-centric interface.",
+    focus: "UX Audit & Redesign",
+    tools: "Figma",
+    methods: "Heuristic Eval",
+    outcome: "Reduced Friction",
+    image: heroImg,
+    link: "https://ankit-kumar1907.github.io/LATT-case-study/",
   },
   {
-    name: "Visually Understanding Algorithms",
+    name: "Aporia — AI Logic Interface",
+    quote:
+      "Can we design an AI that prioritizes logical integrity over user satisfaction?",
     description:
-      "A showcase of animated algorithms coded using TypeScript, with the video garnering over 400,000 views.",
-    image: algorithms,
+      "A research-driven interface that replaces linear chat with argument trees. It uses \"Epistemic Neutrality\" to visually flag logical gaps without judging the user.",
+    focus: "AI Epistemics",
+    tools: "Figma, CSS",
+    methods: "Argument Mapping",
+    outcome: "DAG Visualizer",
+    image: aporiaHeroCard,
+    link: "https://ankit-kumar1907.github.io/Aporia-Case-Study/",
+  },
+  {
+    name: "Duolingo — UX Redesign",
+    quote:
+      "Why does a system designed for engagement create barriers to acquisition?",
+    description:
+      "How might Duolingo's engagement-focused interface affect vocabulary comprehension for adult learners? An evaluation addressing usability gaps and retention.",
+    focus: "UX & Usability",
+    tools: "Figma, HTML",
+    methods: "Heuristic Eval",
+    outcome: "Comprehension Flow",
+    image: duoHeroCard,
+    link: "https://ankit-kumar1907.github.io/UX-Duolingo-CaseStudy/",
   },
 ];
-
-export { experiences, portfolio };
-

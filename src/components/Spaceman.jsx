@@ -1,24 +1,34 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useEffect, useRef, useState } from "react";
-import spacemanScene from "../assets/3d/spaceman.glb";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import CanvasLoader from "./Loader";
 
-const Spaceman = ({ scale, position }) => {
+const Spaceman = ({ scale, position, rotationX, rotationY }) => {
   const spacemanRef = useRef();
-  const { scene, animations } = useGLTF(spacemanScene);
+  // Loads directly from the public/3d directory
+  const { scene, animations } = useGLTF("/3d/spaceman.glb");
   const { actions } = useAnimations(animations, spacemanRef);
 
   useEffect(() => {
-    actions["Idle"].play();
+    if (actions && actions["Idle"]) {
+      actions["Idle"].play();
+    }
   }, [actions]);
 
   return (
-    <mesh ref={spacemanRef} position={position} scale={scale} rotation={[0, 2.2, 0]}>
+    <mesh 
+      ref={spacemanRef} 
+      position={position} 
+      scale={scale} 
+      rotation={[rotationX, rotationY + 2.2, 0]}
+    >
       <primitive object={scene} />
     </mesh>
   );
 };
+
+// Preload the model for faster rendering
+useGLTF.preload("/3d/spaceman.glb");
 
 const SpacemanCanvas = ({ scrollContainer }) => {
   const [rotationX, setRotationX] = useState(0);
@@ -28,6 +38,7 @@ const SpacemanCanvas = ({ scrollContainer }) => {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (!scrollContainer?.current) return;
       const scrollTop = scrollContainer.current.scrollTop;
       const rotationXValue = scrollTop * -0.0006;
       const rotationYValue = scrollTop * -0.00075;
@@ -65,7 +76,10 @@ const SpacemanCanvas = ({ scrollContainer }) => {
   }, [scrollContainer]);
 
   return (
-    <Canvas className={`w-full h-screen bg-transparent z-10`} camera={{ near: 0.1, far: 1000 }}>
+    <Canvas 
+      className="w-full h-screen bg-transparent z-10" 
+      camera={{ near: 0.1, far: 1000 }}
+    >
       <Suspense fallback={<CanvasLoader />}>
         <directionalLight position={[1, 1, 1]} intensity={2} />
         <ambientLight intensity={0.5} />
@@ -73,7 +87,12 @@ const SpacemanCanvas = ({ scrollContainer }) => {
         <spotLight position={[0, 50, 10]} angle={0.15} penumbra={1} intensity={2} />
         <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
 
-        <Spaceman rotationX={rotationX} rotationY={rotationY} scale={scale} position={position} />
+        <Spaceman
+          rotationX={rotationX}
+          rotationY={rotationY}
+          scale={scale}
+          position={position}
+        />
       </Suspense>
     </Canvas>
   );
